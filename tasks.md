@@ -31,19 +31,19 @@ AWS Certified AI Practitioner向けの教材を自動生成するシステムの
   - `agents/`, `utils/`, `output/` フォルダを作成
   - エントリポイント `app.py` を置くトップレベル構成にする
 
-- [ ] **T2** `requirements.txt` を作成する
+- [x] **T2** `requirements.txt` を作成する
   - `streamlit` — UI
   - `openai` — OpenAI API クライアント
   - `python-dotenv` — APIキー管理
 
-- [ ] **T3** `.env.example` を作成する
+- [x] **T3** `.env.example` を作成する
   - `OPENAI_API_KEY` のテンプレートを用意する
 
 ---
 
 ### Phase 2: 共通基盤
 
-- [ ] **T4** `utils/llm.py` を実装する
+- [x] **T4** `utils/llm.py` を実装する
   - OpenAI API を呼び出す共通関数を作る
   - モデル: `gpt-4o`（デフォルト）
   - システムプロンプトとユーザープロンプトを受け取り、テキストを返す
@@ -52,14 +52,14 @@ AWS Certified AI Practitioner向けの教材を自動生成するシステムの
 
 ### Phase 3: エージェント実装
 
-- [ ] **T5** `agents/research_agent.py` を実装する
+- [x] **T5** `agents/research_agent.py` を実装する
   - 入力: 資格名（例: "AWS Certified AI Practitioner"）
   - 処理:
     1. OpenAI に「この試験のドメインと主要トピック一覧を整理して」と依頼する
     2. ※Webスクレイピングは行わず、OpenAIの知識を活用する
   - 出力: ドメイン・トピック一覧（テキスト）
 
-- [ ] **T6** `agents/content_agent.py` を実装する
+- [x] **T6** `agents/content_agent.py` を実装する
   - 入力: Research Agent の出力（トピック一覧）
   - 処理:
     1. トピックごとに OpenAI に「解説を書いて」と依頼する（ループ）
@@ -70,7 +70,7 @@ AWS Certified AI Practitioner向けの教材を自動生成するシステムの
 
 ### Phase 4: パイプライン統合
 
-- [ ] **T7** `pipeline.py` を実装する
+- [x] **T7** `pipeline.py` を実装する
   - Research → Content の順に各エージェントを呼び出す
   - 実行ログ（各ステップの開始・完了）を返す
   - 最終出力を `output/textbook.md` に保存する
@@ -79,7 +79,7 @@ AWS Certified AI Practitioner向けの教材を自動生成するシステムの
 
 ### Phase 5: Streamlit UI
 
-- [ ] **T8** `app.py` を実装する
+- [x] **T8** `app.py` を実装する
   - 資格名入力フォームを表示する
   - 「生成開始」ボタンを押すと `pipeline.py` を呼び出す
   - 各ステップの進行状況を `st.status` または `st.spinner` で表示する
@@ -90,7 +90,7 @@ AWS Certified AI Practitioner向けの教材を自動生成するシステムの
 
 ### Phase 6: 動作確認
 
-- [ ] **T9** エンドツーエンドで実行する
+- [x] **T9** エンドツーエンドで実行する
   - `streamlit run app.py` で起動して画面が表示されることを確認する
   - "AWS Certified AI Practitioner" を入力して教材が生成されることを確認する
   - `output/textbook.md` に Markdown ファイルが保存されることを確認する
